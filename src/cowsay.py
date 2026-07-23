@@ -41,6 +41,15 @@ async def get_cowsay_mcp_environment() -> str:
 
 @mcp.tool()
 async def what_does_cowsay() -> str:
+    """
+    A simple tool that returns what the cow says
+
+    Args:
+        None
+
+    Returns:
+        What the cow says
+    """
     return "The cow says moo"
 
 
