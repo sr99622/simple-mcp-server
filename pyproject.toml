@@ -1,0 +1,8 @@
+[project]
+name = "cowsay"
+version = "0.0.1"
+description = "Simple MCP server for cowsay"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+]

@@ -1,0 +1,53 @@
+{
+  "manifest_version": "0.4",
+  "name": "cowsay",
+  "display_name": "Cowsay (UV Runtime)",
+  "version": "0.0.1",
+  "description": "Simple MCP server using UV runtime",
+  "author": {
+    "name": "Stephen Rhodes"
+  },
+  "icon": "icon.png",
+  "server": {
+    "type": "uv",
+    "entry_point": "src/cowsay.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--directory", "${__dirname}", "src/cowsay.py"],
+      "env": {
+        "COWSAY_USERNAME": "${user_config.cowsay_username}",
+        "COWSAY_PASSWORD": "${user_config.cowsay_password}",
+        "STREAM_SERVER_IP": "${user_config.stream_server_ip}"
+      }    
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  },
+  "keywords": ["cowsay", "uv"],
+  "license": "Apache",
+  "user_config": {
+    "cowsay_username": {
+      "type": "string",
+      "title": "Cowsay Username",
+      "description": "Username for authenticating with cowsay",
+      "required": true
+    },
+    "cowsay_password": {
+      "type": "string",
+      "title": "Cowsay Password",
+      "description": "Password for authenticating with cowsay",
+      "sensitive": true,
+      "required": true
+    },
+    "stream_server_ip": {
+      "type": "string",
+      "title": "Stream Server IP",
+      "description": "IP address of the local streaming relay server",
+      "required": false
+    }
+  }
+}
